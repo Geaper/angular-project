@@ -1,0 +1,32 @@
+<DOCTYPE html>
+<html>
+<head>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.5/angular.min.js"></script>
+</head>
+<body ng-app="ToDoList">
+	<div ng-controller="MainController">
+		<singlelist mylist="todo"></singlelist>
+		<input ng-model="addToDo">
+		<button ng-click="addItem(todo.list, addToDo)">Submit</button>
+
+		<singlelist mylist="books"></singlelist>
+		<input ng-model="addBook">
+		<button ng-click="addItem(books.list, addBook)">Submit</button>
+
+		<div ng-repeat="story in list"> 
+			<h3> {{story.title }} </h3>
+			<p> {{story.abstract }}</p>
+			<a ng-href="{{story.url }}">Read</a>
+		</div>
+	</div>
+
+	<script src="js/app.js"></script>
+	<!-- Controllers -->
+	<script src="js/Controllers/MainController.js"></script>
+	<!-- Directives -->
+	<script src="js/directives/singlelist.js"></script>
+	<!-- Services -->
+	<script src="js/services/nyt.js"></script>
+	
+</body>
+</html>
